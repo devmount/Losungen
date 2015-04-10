@@ -2,67 +2,82 @@
     PluginDraft CSS styles
 */
 
-.plugindraft {
+.losungen {
+    margin-bottom: 25px;
+    font-size: 1.3em;
+}
+
+.losungen cite {
+    display: block;
+    text-align: right;
+}
+
+.copy, .copy a {
+    margin-top: 5em;
+    font-size: 8pt;
+    line-height: 12pt;
+    color: #777;
+    text-align: center;
 }
 
 /* NOTICE message */
-.plugindraft-notice {
+.losungen-notice {
     display: table;
     margin: 2px 0;
     border: 1px solid #777;
     background-color: #eee;
     font-size: 12px;
 }
-.plugindraft-notice div {
+.losungen-notice div {
     display: table-cell;
     padding: 2px 6px;
     color: white;
     background-color: #777;
     height: inherit;
 }
-.plugindraft-notice span {
+.losungen-notice span {
     display: table-cell;
     padding: 2px 4px;
     color: #777;
 }
 
 /* SUCCESS message */
-.plugindraft-success {
+.losungen-success {
     display: table;
     margin: 2px 0;
     border: 1px solid #2a0;
     background-color: #efe;
     font-size: 12px;
 }
-.plugindraft-success div {
+.losungen-success div {
     display: table-cell;
     padding: 2px 6px;
     color: white;
     background-color: #2a0;
     height: inherit;
 }
-.plugindraft-success span {
+.losungen-success span {
     display: table-cell;
     padding: 2px 4px;
     color: #2a0;
 }
 
 /* ERROR message */
-.plugindraft-error {
+.losungen-error {
     display: table;
     margin: 2px 0;
     border: 1px solid #f33;
     background-color: #fee;
     font-size: 12px;
 }
-.plugindraft-error div {
+.losungen-error div {
     display: table-cell;
     padding: 2px 6px;
     color: white;
     background-color: #f33;
     height: inherit;
 }
-.plugindraft-error span {
+.losungen-error span {
     display: table-cell;
     padding: 2px 4px;
     color: #f33;

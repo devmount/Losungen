@@ -162,16 +162,24 @@ class Losungen extends Plugin
                 $date = strtotime($losung->Datum);
                 // find current losung
                 if (date('Y-m-d') == date('Y-m-d', $date)) {
-                    $content .= '<p>' . $losung->Losungstext . '<br />'
-                        . $losung->Losungsvers . '</p>';
-                    $content .= '<p>' . $losung->Lehrtext . '<br />'
-                        . $losung->Lehrtextvers . '</p>';
+                    $content .= '<blockquote class="losungen">' . $losung->Losungstext . '<cite>— '
+                        . $losung->Losungsvers . '</cite></blockquote>';
+                    $content .= '<blockquote class="losungen">' . $losung->Lehrtext . '<cite>— '
+                        . $losung->Lehrtextvers . '</cite></blockquote>';
                     break;
                 }
             }
         } else {
             $content .= 'Für das aktuelle Jahr sind leider keine Losungen verfügbar.';
         }
+
+        $content .= '
+            <div class="copy">
+                [link=Die Losungen|http://www.losungen.de]<br />
+                © Evangelische Brüder-Unität<br />
+                [link=Herrnhuter Brüdergemeine|http://www.herrnhuter.de]
+            </div>
+        ';
 
         // end plugin content
         $content .= '<!-- END ' . self::PLUGIN_TITLE . ' plugin content --> ';
