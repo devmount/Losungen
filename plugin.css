@@ -2,17 +2,27 @@
     PluginDraft CSS styles
 */
 
-.losungen {
+.losungen h2 {
+    text-align: center;
+    font-size: 1.8em;
+}
+.losungen h3 {
+    text-align: center;
+    font-size: .8em;
+}
+
+.losungen blockquote {
     margin-bottom: 25px;
     font-size: 1.3em;
 }
 
-.losungen cite {
+.losungen blockquote cite {
     display: block;
     text-align: right;
 }
 
-.copy, .copy a {
+.losungen .copy,
+.losungen .copy a {
     margin-top: 5em;
     font-size: 8pt;
     line-height: 12pt;

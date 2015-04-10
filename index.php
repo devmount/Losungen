@@ -152,6 +152,7 @@ class Losungen extends Plugin
 
         // initialize return content, begin plugin content
         $content = '<!-- BEGIN ' . self::PLUGIN_TITLE . ' plugin content --> ';
+        $content .= '<div class="losungen"> ';
 
         $year = date('Y');
         $srcfile = PLUGIN_DIR_REL . self::PLUGIN_TITLE . '/src/' . $year . '.xml';
@@ -162,9 +163,11 @@ class Losungen extends Plugin
                 $date = strtotime($losung->Datum);
                 // find current losung
                 if (date('Y-m-d') == date('Y-m-d', $date)) {
-                    $content .= '<blockquote class="losungen">' . $losung->Losungstext . '<cite>— '
+                    $content .= '<h2>'. $losung->Wtag . ' — ' . date('d.m.Y', $date) . '</h2>';
+                    $content .= '<h3>'. $losung->Sonntag . '</h3>';
+                    $content .= '<blockquote>' . $losung->Losungstext . '<cite>— '
                         . $losung->Losungsvers . '</cite></blockquote>';
-                    $content .= '<blockquote class="losungen">' . $losung->Lehrtext . '<cite>— '
+                    $content .= '<blockquote>' . $losung->Lehrtext . '<cite>— '
                         . $losung->Lehrtextvers . '</cite></blockquote>';
                     break;
                 }
@@ -180,6 +183,8 @@ class Losungen extends Plugin
                 [link=Herrnhuter Brüdergemeine|http://www.herrnhuter.de]
             </div>
         ';
+
+        $content .= '</div>';
 
         // end plugin content
         $content .= '<!-- END ' . self::PLUGIN_TITLE . ' plugin content --> ';
