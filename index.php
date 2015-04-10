@@ -1,9 +1,9 @@
 <?php
 
 /**
- * moziloCMS Plugin: PluginDraft
+ * moziloCMS Plugin: Losungen
  *
- * Does something awesome!
+ * Shows the german Losung for the current day
  *
  * PHP version 5
  *
@@ -12,8 +12,8 @@
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
  * @version  GIT: v0.x.jjjj-mm-dd
- * @link     https://github.com/devmount/PluginDraft
- * @link     http://devmount.de/Develop/moziloCMS/Plugins/PluginDraft.html
+ * @link     https://github.com/devmount/Losungen
+ * @link     http://devmount.de/Develop/moziloCMS/Plugins/Losungen.html
  * @see      Verse
  *           – The Bible
  *
@@ -28,15 +28,15 @@ if (!defined('IS_CMS')) {
 }
 
 /**
- * PluginDraft Class
+ * Losungen Class
  *
  * @category PHP
  * @package  PHP_MoziloPlugins
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
- * @link     https://github.com/devmount/PluginDraft
+ * @link     https://github.com/devmount/Losungen
  */
-class PluginDraft extends Plugin
+class Losungen extends Plugin
 {
     // language
     private $_admin_lang;
@@ -44,14 +44,14 @@ class PluginDraft extends Plugin
 
     // plugin information
     const PLUGIN_AUTHOR  = 'DEVMOUNT';
-    const PLUGIN_TITLE   = 'PluginDraft';
+    const PLUGIN_TITLE   = 'Losungen';
     const PLUGIN_VERSION = 'v0.x.jjjj-mm-dd';
     const MOZILO_VERSION = '2.0';
     const PLUGIN_DOCU
-        = 'http://devmount.de/Develop/moziloCMS/Plugins/PluginDraft.html';
+        = 'http://devmount.de/Develop/moziloCMS/Plugins/Losungen.html';
 
     private $_plugin_tags = array(
-        'tag1' => '{PluginDraft|type|<param1>|<param2>}',
+        'tag1' => '{Losungen}',
     );
 
     const LOGO_URL = 'http://media.devmount.de/logo_pluginconf.png';
@@ -142,18 +142,36 @@ class PluginDraft extends Plugin
                 : $this->settings->get($elem);
         }
 
-        // include jquery and PluginDraft javascript
+        // include jquery and Losungen javascript
         $syntax->insert_jquery_in_head('jquery');
         $syntax->insert_in_head(
             '<script type="text/javascript" src="'
             . $this->PLUGIN_SELF_URL
-            . 'js/PluginDraft.js"></script>'
+            . 'js/Losungen.js"></script>'
         );
 
         // initialize return content, begin plugin content
         $content = '<!-- BEGIN ' . self::PLUGIN_TITLE . ' plugin content --> ';
 
-        // do something awesome here! ...
+        $year = date('Y');
+        $srcfile = PLUGIN_DIR_REL . self::PLUGIN_TITLE . '/src/' . $year . '.xml';
+        // check if xml file for current year exists
+        if (file_exists($srcfile)) {
+            $xml = simplexml_load_file($srcfile);
+            foreach ($xml->Losungen as $losung) {
+                $date = strtotime($losung->Datum);
+                // find current losung
+                if (date('Y-m-d') == date('Y-m-d', $date)) {
+                    $content .= '<p>' . $losung->Losungstext . '<br />'
+                        . $losung->Losungsvers . '</p>';
+                    $content .= '<p>' . $losung->Lehrtext . '<br />'
+                        . $losung->Lehrtextvers . '</p>';
+                    break;
+                }
+            }
+        } else {
+            $content .= 'Für das aktuelle Jahr sind leider keine Losungen verfügbar.';
+        }
 
         // end plugin content
         $content .= '<!-- END ' . self::PLUGIN_TITLE . ' plugin content --> ';
@@ -261,7 +279,7 @@ class PluginDraft extends Plugin
 
         // build Template
         $template .= '
-            <div class="plugindraft-admin-header">
+            <div class="losungen-admin-header">
             <span>'
                 . $this->_admin_lang->getLanguageValue(
                     'admin_header',
@@ -273,21 +291,21 @@ class PluginDraft extends Plugin
             </a>
             </div>
         </li>
-        <li class="mo-in-ul-li ui-widget-content plugindraft-admin-li">
-            <div class="plugindraft-admin-subheader">'
+        <li class="mo-in-ul-li ui-widget-content losungen-admin-li">
+            <div class="losungen-admin-subheader">'
             . $this->_admin_lang->getLanguageValue('admin_test')
             . '</div>
-            <div class="plugindraft-single-conf">
+            <div class="losungen-single-conf">
                 {test1_text}
                 {test1_description}
-                <span class="plugindraft-admin-default">
+                <span class="losungen-admin-default">
                     [' . /*$this->_confdefault['test1'][0] .*/']
                 </span>
             </div>
-            <div class="plugindraft-single-conf">
+            <div class="losungen-single-conf">
                 {test2_text}
                 {test2_description}
-                <span class="plugindraft-admin-default">
+                <span class="losungen-admin-default">
                     [' . /*$this->_confdefault['test2'][0] .*/']
                 </span>
         ';
