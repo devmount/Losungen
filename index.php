@@ -12,7 +12,7 @@
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
  * @version  GIT: v0.x.jjjj-mm-dd
- * @link     https://github.com/devmount/Losungen
+ * @link     https://github.com/devmount-mozilo/Losungen
  * @link     http://devmount.de/Develop/moziloCMS/Plugins/Losungen.html
  * @see      Verse
  *           – The Bible
@@ -34,7 +34,7 @@ if (!defined('IS_CMS')) {
  * @package  PHP_MoziloPlugins
  * @author   DEVMOUNT <mail@devmount.de>
  * @license  GPL v3+
- * @link     https://github.com/devmount/Losungen
+ * @link     https://github.com/devmount-mozilo/Losungen
  */
 class Losungen extends Plugin
 {
