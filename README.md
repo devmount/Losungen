@@ -16,7 +16,9 @@ Installing a plugin manually requires FTP Access.
 - Go to the backend tab *Plugins* and activate the now listed new PluginDraft plugin
 
 ## Syntax
-```{PluginDraft|<param1>|<param2>}```
+```
+{PluginDraft|<param1>|<param2>}
+```
 Here comes the general description of the plugin tag.
 
 1. Parameter ```<param1>```: Short description of parameter 1.
@@ -27,4 +29,4 @@ This Plugin is distributed under *GNU General Public License, Version 3* (see LI
 
 ## Documentation
 A detailed documentation and demo can be found on DEVMOUNT's website:
-http://devmount.de/Develop/moziloCMS/Plugins/PluginDraft.html
+http://t.devmount.de/Develop/moziloCMS/Plugins/PluginDraft.html
