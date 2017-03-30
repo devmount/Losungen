@@ -13,7 +13,6 @@
  * @license  GPL v3+
  * @version  GIT: v0.x.jjjj-mm-dd
  * @link     https://github.com/devmount-mozilo/Losungen
- * @link     http://devmount.de/Develop/moziloCMS/Plugins/Losungen.html
  * @see      Verse
  *           – The Bible
  *
@@ -48,7 +47,7 @@ class Losungen extends Plugin
     const PLUGIN_VERSION = 'v0.x.jjjj-mm-dd';
     const MOZILO_VERSION = '2.0';
     const PLUGIN_DOCU
-        = 'http://devmount.de/Develop/moziloCMS/Plugins/Losungen.html';
+        = 'https://github.com/devmount-mozilo/Losungen';
 
     private $_plugin_tags = array(
         'tag1' => '{Losungen}',
